@@ -6,7 +6,7 @@ import XCTest
 
 class AsianLocaleTest: BaseTestCase {
 	func testSearchinLocale() {
-        waitForExistence(app.buttons["HomeView.settingsButton"], timeout: 10)
+        waitForExistence(app.buttons["HomeView.settingsButton"], timeout: 15)
         // Set search engine to Google
 		app.buttons["HomeView.settingsButton"].tap()
 		app.tables.cells["SettingsViewController.searchCell"].tap()

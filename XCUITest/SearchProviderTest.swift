@@ -76,7 +76,7 @@ class SearchProviderTest: BaseTestCase {
 
 	private func changeSearchProvider(provider: String) {
 		app.buttons["Settings"].tap()
-        waitForExistence(app.tables.cells["SettingsViewController.searchCell"], timeout: 5)
+        waitForExistence(app.tables.cells["SettingsViewController.searchCell"], timeout: 10)
 		app.tables.cells["SettingsViewController.searchCell"].tap()
         waitForExistence(app.tables.staticTexts[provider], timeout: 5)
 		app.tables.staticTexts[provider].tap()
@@ -85,13 +85,11 @@ class SearchProviderTest: BaseTestCase {
 	}
 
 	private func doSearch(searchWord: String, provider: String) {
-		let searchForText = "Search for " + searchWord
-        let urlbarUrltextTextField = app.textFields["URLBar.urlText"]
+		let urlbarUrltextTextField = app.textFields["URLBar.urlText"]
         let cancelButton = app.buttons["URLBar.cancelButton"]
 		urlbarUrltextTextField.tap()
 		urlbarUrltextTextField.typeText(searchWord)
-		waitForExistence(app.buttons[searchForText])
-		app.buttons[searchForText].tap()
+        urlbarUrltextTextField.typeText("\n")
         waitForWebPageLoad()
 
         urlbarUrltextTextField.tap()

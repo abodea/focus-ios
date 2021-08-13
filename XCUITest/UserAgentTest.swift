@@ -14,5 +14,4 @@ class UserAgentTest: BaseTestCase {
         waitForWebPageLoad()
         waitForNoExistence(app.webViews.staticTexts["Error: disallowed_useragent"])
     }
-
 }

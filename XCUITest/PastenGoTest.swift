@@ -62,7 +62,7 @@ class PastenGoTest: BaseTestCase {
         // Tap url bar to show context menu
         let searchOrEnterAddressTextField = app.textFields["URLBar.urlText"]
         searchOrEnterAddressTextField.tap()
-        waitForExistence(app.menuItems["Paste"], timeout: 3)
+        waitForExistence(app.menuItems["Paste"], timeout: 5)
         XCTAssertTrue(app.menuItems["Paste & Go"].isEnabled)
 
         // Select paste and go, and verify it goes to the correct place
@@ -78,6 +78,6 @@ class PastenGoTest: BaseTestCase {
         searchOrEnterAddressTextField.tap()
         waitForExistence(app.menuItems["Paste"], timeout: 5)
         app.menuItems["Paste"].tap()
-//        waitForExistence(app.buttons["Search for " + clipboard], timeout: 5) - Different for refresh branch - change it later
+        waitForValueContains(app.textFields["URLBar.urlText"], value: "1(*&)(*%@@$^%^12345)")
     }
 }
