@@ -1,7 +1,6 @@
 name: Create a PR with changes after importing strings
 on:
-  schedule:
-    - cron: '0 22 * * *'
+  workflow_dispatch
 
 jobs:
   build:
@@ -39,4 +38,3 @@ jobs:
         title: "string-import-${{ env.current_date }}"        
         body: "This (automated) PR import string changes"
         labels: Needs Code Review
-        reviewers: mozilla-mobile/focus-ios-eng
