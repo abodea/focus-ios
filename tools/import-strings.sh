@@ -31,7 +31,7 @@ if [ ! -d Blockzilla.xcodeproj ]; then
 fi
 
 echo "[*] Cloning mozilla-l10n/focusios-l10n"
-git clone git@github.com:mozilla-l10n/focusios-l10n.git
+git clone https://github.com/mozilla-l10n/focusios-l10n.git
 
 echo "\n\n[*] Building tools/Localizations"
 (cd tools/Localizations && swift build)
