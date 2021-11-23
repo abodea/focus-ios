@@ -1,7 +1,7 @@
 import os
 import ruamel.yaml
 import sys
-import yaml
+from ruamel.yaml import YAML
 from pathlib import Path
 
 FILE_NAME = "*.lproj"
