@@ -5,7 +5,7 @@ from ruamel.yaml import YAML
 from pathlib import Path
 
 FILE_NAME = "*.lproj"
-BLOCKZILLA_FOLDER = os.path.join(os.path.dirname(__file__), 'Blockzilla')
+BLOCKZILLA_FOLDER = os.path.join(os.path.dirname(__file__), '..', 'Blockzilla')
 yaml = ruamel.yaml.YAML()
 
 def get_current_locales_in_project(): 
