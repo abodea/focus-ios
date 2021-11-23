@@ -1,6 +1,6 @@
 import os
 import sys
-#import ruamel.yaml
+import ruamel.yaml
 from ruamel.yaml import YAML
 from pathlib import Path
 
@@ -25,12 +25,11 @@ def get_locales_from_list_in_repo():
         my_dict = yaml.load(f)
         return my_dict["locales"]
 
-def diff(first_list, second_list):
+def get_diff(first_list, second_list):
     second = set(second_list)
     return ([item for item in first_list if item not in second_list])
 
 def modify_local_file(add_locales, remove_locales):
-    #yaml = ruamel.yaml.YAML()
     with open('l10n-screenshots-config.yml') as f:
         my_dict = yaml.load(f)
 
@@ -50,11 +49,11 @@ if __name__ == '__main__':
     locales_config_file_list = get_locales_from_list_in_repo()
 
     # if locales in diff are in 1 but not in 2 -> remove from config file
-    remove_locales = diff(locales_config_file_list, locales_project_list)
+    remove_locales = get_diff(locales_config_file_list, locales_project_list)
     print(f"Remove:  {remove_locales}")
 
     # if locales in diff are in 2 but not in 1 -> add to config file
-    add_locales = diff(locales_project_list, locales_config_file_list)
+    add_locales = get_diff(locales_project_list, locales_config_file_list)
     print(f"Add: {add_locales}")
 
     modify_local_file(add_locales, remove_locales)
