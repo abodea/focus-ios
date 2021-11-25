@@ -357,7 +357,7 @@ workflows:
 
             set -x
 
-            echo "curl to Download derived data"
+            echo "curl to Download derived data TEST "
 
             curl --location --retry 5 --output l10n-screenshots-dd.zip "$MOZ_DERIVED_DATA_PATH"
 
